@@ -18,4 +18,4 @@ RUN echo "PS1='nestjs:\\w\\$ '" >> /etc/bash.bashrc
 
 WORKDIR /nest-app
 
-CMD ["bash"]
+CMD ["bash", "-lc", "sleep infinity"]
