@@ -1,0 +1,21 @@
+# NestJS dev container
+FROM node:24-slim
+
+# utilidades típicas
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends git wget zip unzip ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
+# Nest CLI global
+RUN npm i -g @nestjs/cli
+
+# HOME como en tu Dockerfile
+RUN mkdir -p /home/ && chmod 777 /home/
+ENV HOME=/home
+
+# prompt
+RUN echo "PS1='nestjs:\\w\\$ '" >> /etc/bash.bashrc
+
+WORKDIR /nest-app
+
+CMD ["bash"]
